@@ -2,7 +2,8 @@
 if [ -f /init/mods/apply ]; then
 	echo "Applying mod changes"
 	for r in $(cat /init/mods/remove.txt) ; do
-	    for fn in $(ls /data/mods | grep -P "^$r*.jar") ; do
+		echo "Removing $r"
+	    for fn in $(ls /data/mods | grep -P "^$r*") ; do
 			rm "/data/mods/$fn"
 			if [ $? ]; then
 				echo "Remove $fn failed"

@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -f /init/mods/apply ]; then
+if [ -f /init/mods/apply || -f /init/now ]; then
 	echo "Applying mod changes"
 	for r in $(cat /init/mods/remove.txt) ; do
 		echo "Finding $r"
@@ -16,6 +16,7 @@ if [ -f /init/mods/apply ]; then
 	cp /init/mods/*.jar /data/mods
 	echo "============================"
 	rm /init/mods/apply
+	rm /init/now
 	echo "Done."
 fi
 if [ "$EULA" = "TRUE" ]; then

@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -f /init/mods/apply || -f /init/now ]; then
+if [[ -f /init/mods/apply || -f /init/now ]]; then
 	echo "Applying mod changes"
 	for r in $(cat /init/mods/remove.txt) ; do
 		echo "Finding $r"

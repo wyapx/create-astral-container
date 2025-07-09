@@ -2,7 +2,7 @@
 if [ -f /init/mods/apply ]; then
 	echo "Applying mod changes"
 	for r in $(cat /init/mods/remove.txt) ; do
-		rm "$r*.jar"
+		rm "/data/mods/$r*.jar"
 		if [ $? ]; then
 			echo "Remove $r failed"
 		else

@@ -2,12 +2,17 @@
 if [ -f /init/mods/apply ]; then
 	echo "Applying mod changes"
 	for r in $(cat /init/mods/remove.txt) ; do
-		rm "/data/mods/$r*.jar"
-		if [ $? ]; then
-			echo "Remove $r failed"
-		else
-			echo "Remove $r done"
+		if [ !r ]; do
+			continue
 		fi
+	    for fn in $(ls /data/mods | grep -P "^$r*.jar") ; do
+			rm "/data/mods/$fn"
+			if [ $? ]; then
+				echo "Remove $fn failed"
+			else
+				echo "Remove $fn done"
+			fi
+		done
 	done
 	echo "Copying files..."
 	cp /init/mods/*.jar /data/mods

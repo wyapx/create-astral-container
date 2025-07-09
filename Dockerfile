@@ -1,10 +1,6 @@
 FROM eclipse-temurin:17-jre-jammy AS builder
 RUN apt-get -qq update && apt-get -qq install -y unzip jq
 
-RUN curl -fsSL -o "/tmp/rcon.tar.gz" $(curl -s https://api.github.com/repos/gorcon/rcon-cli/releases/latest | jq -r '.assets | map(select(.name | test("amd64_linux")))[0].browser_download_url')
-RUN mkdir /tmp/rcon
-RUN tar -xf /tmp/rcon.tar.gz -C /tmp/rcon --strip-components=1
-
 WORKDIR /data
 RUN curl -fsSL -o "/tmp/pack.zip" "https://mediafilez.forgecdn.net/files/6057/416/Create%20Astral%20Server%20Pack%20v2.1.3.zip"
 RUN curl -fsSL -o "/tmp/old.zip" "https://mediafilez.forgecdn.net/files/4496/671/Create%20Astral%20Server%20Pack%20v2.0.4c.zip"

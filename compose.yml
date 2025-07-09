@@ -16,6 +16,11 @@ services:
       - ./astral-world:/data/world:z
       - ./astral-backup:/data/backups:z
 
+  rcon:
+    image: outdead/rcon
+    volumes:
+      - ./rcon.yaml:/rcon.yaml
+
 networks:
   default:
     enable_ipv6: true

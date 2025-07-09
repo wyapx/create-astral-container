@@ -1,2 +1,2 @@
 #!/bin/sh
-docker compose exec -it rcon ./rcon
+docker compose run -it rcon ./rcon

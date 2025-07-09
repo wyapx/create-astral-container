@@ -12,7 +12,7 @@ RUN curl -fsSL -o "server.jar" "https://meta.fabricmc.net/v2/versions/loader/1.1
 
 FROM eclipse-temurin:17-jre-jammy
 
-RUN touch /init/now
+RUN mkdir /init && touch /init/now
 COPY --from=builder /data /data
 COPY --chmod=755 entrypoint.sh /entrypoint.sh
 

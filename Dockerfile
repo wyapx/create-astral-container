@@ -11,9 +11,6 @@ RUN cp /tmp/old/mods/Hephaestus-1.18.2-3.5.2.155.jar mods/
 RUN curl -fsSL -o "server.jar" "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.16.3/0.11.1/server/jar"
 
 FROM eclipse-temurin:17-jre-jammy
-COPY --from=builder --chmod=755 /tmp/rcon/rcon /usr/local/bin/rcon-cli
-COPY --from=builder --chmod=644 /tmp/rcon/rcon.yaml /etc/rcon.yaml
-COPY --chmod=755 rcon /usr/local/bin/rcon
 COPY --chmod=755 entrypoint.sh /entrypoint.sh
 
 COPY --from=builder /data /data

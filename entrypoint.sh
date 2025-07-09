@@ -1,4 +1,20 @@
 #!/bin/sh
+if [ -f /init/mods/apply ]; then
+	echo "Applying mod changes"
+	for r in $(cat /init/mods/remove.txt) ; do
+		rm "$r*.jar"
+		if [ $? ]; then
+			echo "Remove $r failed"
+		else
+			echo "Remove $r done"
+		fi
+	done
+	echo "Copying files..."
+	cp /init/mods/*.jar /data/mods
+	echo "============================"
+	rm /init/mods/apply
+	echo "Done."
+fi
 if [ "$EULA" = "TRUE" ]; then
 	echo "# EULA accepted semi-automatically by container.\ 
 		eula=true" >eula.txt

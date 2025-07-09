@@ -1,6 +1,8 @@
 services:
   create-astral:
-    image: ghcr.io/claraphyll/create-astral:v2.1.3
+    # image: ghcr.io/maxi0604/create-astral:v2.1
+    build: .
+
     environment:
         EULA: "FALSE"
         RCON_PASSWORD: "hunter2"
@@ -11,12 +13,8 @@ services:
       - ./banned-players.json:/data/banned-players.json:z
       - ./banned-ips.json:/data/banned-ips.json:z
       - ./server.properties:/init/server.properties:z
-      - astral-world:/data/world:z
-      - astral-backup:/data/backups:z
-
-volumes:
-  astral-world:
-  astral-backup:
+      - ./astral-world:/data/world:z
+      - ./astral-backup:/data/backups:z
 
 networks:
   default:

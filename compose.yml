@@ -2,6 +2,7 @@ services:
   create-astral:
     # image: ghcr.io/maxi0604/create-astral:v2.1
     build: .
+    restart: unless-stopped
 
     environment:
         EULA: "FALSE"

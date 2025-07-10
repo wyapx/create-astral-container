@@ -10,7 +10,7 @@ RUN cp /tmp/old/mods/vinery-1.1.4.jar mods/
 RUN cp /tmp/old/mods/Hephaestus-1.18.2-3.5.2.155.jar mods/
 RUN curl -fsSL -o "server.jar" "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.16.3/0.11.1/server/jar"
 
-FROM eclipse-temurin:17-jre-jammy
+FROM container-registry.oracle.com/graalvm/jdk:24
 
 RUN mkdir /init && touch /init/now
 COPY --from=builder /data /data

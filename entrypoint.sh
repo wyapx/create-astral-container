@@ -33,7 +33,7 @@ if [ "$EULA" = "TRUE" ]; then
 	fi
 
 	grep "^sync-chunk-writes" server.properties || echo "sync-chunk-writes=false" >>server.properties
-	exec java -Xms2G -Xmx6G -XX:+UseZGC -XX+ZGenerational $JVM_ARGS -jar server.jar --nogui
+	exec java -Xms2G -Xmx6G -XX:+UseZGC -XX:+ZGenerational $JVM_ARGS -jar server.jar --nogui
 else
 	echo "Mojang EULA not accepted. Run with -e EULA=TRUE to accept."
 fi
